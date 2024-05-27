@@ -28,6 +28,11 @@ export class EventsController {
     return this.eventsService.delete(id);
   }
 
+  @Get(':id')
+  async getOne(@Param('id') id: string) {
+    return this.eventsService.getById(id);
+  }
+
   @Get(':id/recommends')
   async getRecommendedEvents(@Param('id') id: string) {
     return this.eventsService.getRecommended(id);
