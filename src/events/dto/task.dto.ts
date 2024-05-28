@@ -1,9 +1,8 @@
 import { IsOptional, IsString, IsDateString, IsNotEmpty, MinLength } from 'class-validator';
 
 export class CreateEventDto {
-  @IsNotEmpty({ message: 'Title cannot be empty' })
+  @IsNotEmpty()
   @IsString()
-  @MinLength(1, { message: 'Title cannot be empty' })
   title: string;
 
   @IsNotEmpty({ message: 'Date cannot be empty' })

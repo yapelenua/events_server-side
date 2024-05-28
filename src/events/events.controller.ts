@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, UsePipes, ValidationPipe, BadRequestException } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, UsePipes, ValidationPipe } from '@nestjs/common';
 import { EventsService } from './events.service';
 import { CreateEventDto, UpdateEventDto } from './dto/task.dto';
 
@@ -12,13 +12,13 @@ export class EventsController {
   }
 
   @Post()
-  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, exceptionFactory: (errors) => new BadRequestException('title cant be empty') }))
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
   async createEvent(@Body() dto: CreateEventDto) {
     return this.eventsService.create(dto);
   }
 
   @Patch(':id')
-  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, exceptionFactory: (errors) => new BadRequestException(errors) }))
+  @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
   async updateEvent(@Param('id') id: string, @Body() dto: UpdateEventDto) {
     return this.eventsService.update(id, dto);
   }
