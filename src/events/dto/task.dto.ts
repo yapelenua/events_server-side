@@ -34,6 +34,7 @@ export class UpdateEventDto {
   date?: string;
 
   @IsOptional()
+  @IsString()
   category?: string;
 
   @IsOptional()

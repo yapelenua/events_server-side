@@ -38,6 +38,7 @@ export class EventsService {
       data: {
         description: dto.description,
         title: dto.title,
+        category: dto.category,
         location: dto.location,
         date: dto.date
       }
